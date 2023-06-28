@@ -12,11 +12,12 @@
     --red: hsl(0, 90%, 53%);
 }
 
+/*--- GLOBAL ---*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: solid 1px rgb(182, 25, 51); */
 }
 
 body, main {
@@ -39,7 +40,6 @@ body {
 @media (min-width: 800px) {
     body {
         margin: 10% auto;
-        /* max-height: 1000px; */
         border-radius: 0.7em;
     }
 }
@@ -49,35 +49,6 @@ main {
     margin-bottom: 5%;
 }
 
-p {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(0.8em, 0.1rem + 2vw, 1.2rem);
-    color: var(--dark-grayish-blue);
-}
-
-.quoted_msg {
-    border: solid 0.1em var(--light-grayish-blue-1);
-    border-radius: 0.2em;
-    padding: 0.7em 0.7em;
-    margin-top: 0.4em;
-}
-
-.username {
-    color: var(--very-dark-blue);
-}
-
-.time {
-    color: var(--grayish-blue);
-}
-
-.group {
-    color: var(--blue);
-}
-
-.notification_dot {
-    font-size: clamp(1em, 0.1rem + 2vw, 1.5rem);
-    color: var(--red);
-}
 
 /* HEADER */
 
@@ -134,13 +105,12 @@ section {
     border-radius: 0.2em;
     padding: 0.7em 0.5em;
     gap: 0.5em;
+    transition: all 0.3s;
 }
 
 .profile_picture_div, .post_picture_div {
-    /* min-width: 80px; */
     display: flex;
     flex: 0 0 clamp(4em, 0.5rem + 4vw, 6rem);
-    /* flex-grow: 1; */
 }
 
 .profile_picture, .post_picture {
@@ -149,9 +119,56 @@ section {
 }
 
 .content_div {
-    /* width: 80%; */
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     gap: 0.2em;
+}
+
+p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(0.8em, 0.1rem + 2vw, 1.2rem);
+    color: var(--dark-grayish-blue);
+}
+
+.quoted_msg {
+    border: solid 0.1em var(--light-grayish-blue-1);
+    border-radius: 0.2em;
+    padding: 0.7em 0.7em;
+    margin-top: 0.4em;
+}
+
+.username {
+    color: var(--very-dark-blue);
+}
+
+.time {
+    color: var(--grayish-blue);
+}
+
+.group {
+    color: var(--blue);
+}
+
+.username, .post, .group, h3 {
+    text-decoration: underline transparent;
+    text-decoration-thickness: 0.2em;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.username:hover, .post:hover, .group:hover, h3:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+}
+
+.username:active, .post:active, .group:active, h3:active {
+    text-decoration-color: var(--red);
+}
+
+.notification_dot {
+    font-size: clamp(1em, 0.1rem + 2vw, 1.5rem);
+    color: var(--red);
+    transition: all 0.2s;
 }

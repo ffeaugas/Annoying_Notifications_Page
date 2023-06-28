@@ -1,10 +1,25 @@
-console.log('Hello world');
+/* DOM ELEMENTS */
 
-const element = document.querySelector('.post_picture');
-element.addEventListener('click', function () {
-    // window.alert('Vous avez cliqué sur le lien');
-    if (element.style.visibility === 'visible')
-        element.style.visibility = 'hidden';
-    else
-        element.style.visibility = 'visible';
+const   markAllAsReadElement = document.querySelector('h3');
+const   notificationElements = document.querySelectorAll('section');
+
+/* EVENT LISTENERS */
+
+markAllAsReadElement.addEventListener('click', function() {
+    notificationElements.forEach(notification => {
+        setNotificationRead(notification);
+    })
 })
+
+notificationElements.forEach(notification => {
+    notification.addEventListener('click', function() {
+        setNotificationRead(notification);
+    });
+})
+
+/* FUNCTIONS */
+
+function setNotificationRead(notification) {
+    notification.style.backgroundColor = 'white';
+    notification.querySelector('.notification_dot').style.visibility = 'hidden';
+}
